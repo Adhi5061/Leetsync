@@ -13,5 +13,4 @@ class Solution:
         if(t==1):
             return s
         else:
-            return(max(self.longestNiceSubstring(s[0:ind]),self.longestNiceSubstring(s[ind+1:]),key=len
-            ))
+            return(max(self.longestNiceSubstring(s[0:ind]),self.longestNiceSubstring(s[ind+1:]),key=len))
