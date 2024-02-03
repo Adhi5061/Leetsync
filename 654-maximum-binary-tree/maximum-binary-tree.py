@@ -8,7 +8,8 @@ class Solution:
     def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
         if(len(nums)==0):
             return None
-        maxv,maxi=max([(val,ind) for ind,val in enumerate(nums)])
+        element = max(nums)
+        maxi = nums.index(element)
         node=TreeNode(nums[maxi])
         node.left=self.constructMaximumBinaryTree(nums[0:maxi])
         node.right=self.constructMaximumBinaryTree(nums[maxi+1:])
