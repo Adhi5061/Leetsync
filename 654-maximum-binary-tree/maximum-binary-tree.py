@@ -8,9 +8,6 @@ class Solution:
     def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
         if(len(nums)==0):
             return None
-        if(len(nums)==1):
-            node=TreeNode(nums[0])
-            return node
         else:
             maxv,maxi=max([(val,ind) for ind,val in enumerate(nums)])
             node=TreeNode(nums[maxi])
