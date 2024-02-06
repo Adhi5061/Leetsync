@@ -8,7 +8,6 @@ class Solution:
         while(r<len(nu)):
             sub+=nu[r]
             number=int(sub)
-            print(c,number)
             if(number!=0 and num%number==0):
                 c+=1
             sub=sub[1:]
