@@ -1,7 +1,7 @@
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        nums1=sorted(list(set(nums1)))
-        nums2=sorted(list(set(nums2)))
+        nums1.sort()
+        nums2.sort()
         def present(arr,ele):
             l=0
             r=len(arr)-1
@@ -16,6 +16,6 @@ class Solution:
             return False
         res=[]
         for i in nums1:
-            if(present(nums2,i)):
+            if(i not in res and present(nums2,i)):
                 res.append(i)
         return res
