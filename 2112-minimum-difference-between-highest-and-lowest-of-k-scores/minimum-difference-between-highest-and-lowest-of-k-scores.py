@@ -4,9 +4,8 @@ class Solution:
         left=0
         right=k-1
         minv=nums[-1]-nums[0]
-        while(right<len(nums)):
-            if(nums[right]-nums[left]<minv):
-                minv=nums[right]-nums[left]
+        while(right<len(nums)):            
+            minv=min(minv,nums[right]-nums[left])
             right+=1
             left+=1
         return minv
