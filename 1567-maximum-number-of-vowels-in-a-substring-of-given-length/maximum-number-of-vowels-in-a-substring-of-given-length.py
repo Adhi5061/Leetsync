@@ -16,4 +16,6 @@ class Solution:
             left+=1
             right+=1
             res=max(res,ccount)
+            if(res==k):
+                return res
         return res
