@@ -11,7 +11,6 @@ class Solution:
             ind=len(nums)-1
             while(ind>pos):
                 if(nums[ind]>nums[pos]):
-                    print(nums,pos,ind)
                     nums[pos],nums[ind]=nums[ind],nums[pos]
                     nums[pos+1:]=sorted(nums[pos+1:])
                     return 
