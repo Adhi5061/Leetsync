@@ -22,19 +22,13 @@ class Solution:
             if(nums[ind]<nums[ind+1]):
                 break
             ind-=1
-
-
         if(ind==-1):
             nums.reverse()
             return
         ele=nums[ind]
         cmax=max(nums)
-        print(ele,ind,cmax,nums)
         for temp in range(ind+1,len(nums)):
-            print(nums,temp,nums[temp])
-            print(nums[temp]>ele,nums[temp]<=cmax)
             if(nums[temp]>ele and nums[temp]<=cmax):
-                print("sdfg")
                 ci=temp
                 cmax=nums[temp]
         nums[ci],nums[ind]=nums[ind],nums[ci]
