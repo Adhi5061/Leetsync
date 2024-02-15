@@ -15,7 +15,6 @@ class Solution:
             i-=1
             t+=1
             j=t
-            print("Value of i,j",i,j)
             while(j<=b):
                 res.append(matrix[j][i])
                 j+=1
