@@ -3,9 +3,8 @@ class Solution:
         res=[]
         def cosum(pos,curr,csum):
             if(csum==target):
-                 if(curr[:] not in res):
-                        res.append(curr[:])
-                 return
+                res.append(curr[:])
+                return
             if(csum>target):
                 return
             if(pos==len(candidates)):
