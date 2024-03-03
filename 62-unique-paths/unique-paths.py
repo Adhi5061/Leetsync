@@ -4,11 +4,11 @@ class Solution:
         def path(x,y):
             if((x,y) in d):
                 return d[(x,y)]
-            if(x==m or y==n):
+            if(x==1 or y==1):
                 d[(x,y)]=1
                 return 1
             else:
-                ans= (path(x+1,y)+path(x,y+1))
+                ans= (path(x-1,y)+path(x,y-1))
                 d[(x,y)]=ans
                 return ans
-        return(path(1,1))
+        return(path(m,n))
