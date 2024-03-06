@@ -6,7 +6,9 @@ class Solution:
                 return memo[(pos,target)]
             if(pos==len(nums)):
                 if(target==0):
+                    
                     return 1
+
                 else:
                     return 0
             c=0
