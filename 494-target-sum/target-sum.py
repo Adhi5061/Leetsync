@@ -6,10 +6,11 @@ class Solution:
                 return memo[(pos,target)]
             if(pos==len(nums)):
                 if(target==0):
-                    
+                    memo[(pos,target)]=1
                     return 1
 
                 else:
+                    
                     return 0
             c=0
             c+=tsum(target+nums[pos],pos+1)
