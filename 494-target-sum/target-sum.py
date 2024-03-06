@@ -8,9 +8,8 @@ class Solution:
                 if(target==0):
                     memo[(pos,target)]=1
                     return 1
-
                 else:
-                    
+                    memo[(pos,target)]=0
                     return 0
             c=0
             c+=tsum(target+nums[pos],pos+1)
