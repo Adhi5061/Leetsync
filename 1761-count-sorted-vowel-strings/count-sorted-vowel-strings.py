@@ -4,6 +4,7 @@ class Solution:
         memo={}
         def vowel(pos,noe):
             if((pos,noe) in memo):
+                
                 return memo[(pos,noe)]
             if(noe==n):
                 return 1
