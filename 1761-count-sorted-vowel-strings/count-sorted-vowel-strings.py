@@ -4,11 +4,12 @@ class Solution:
         memo={}
         def vowel(pos,noe):
             if((pos,noe) in memo):
-                
                 return memo[(pos,noe)]
             if(noe==n):
+                memo[(pos,noe)]=1
                 return 1
             if(pos==5):
+                memo[(pos,noe)]=0
                 return 0
             c=0
             for i in range(pos,5):
