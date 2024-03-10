@@ -13,7 +13,6 @@ class Solution:
             l=diameter(root.left)
             r=diameter(root.right)
             cdia=abs(l[0]+r[0])
-            print(l,r,cdia)
             dia=max(l[1],r[1],cdia)
             height=max(l[0],r[0])+1
             return [height,dia]
