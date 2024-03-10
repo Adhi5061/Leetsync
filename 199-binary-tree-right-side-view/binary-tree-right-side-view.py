@@ -8,14 +8,14 @@ class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
         
         res=[]
-        self.maxl=-1
-        def dfs(root,level):
+        def dfs(root,level,maxl):
             if(root==None):
-                return 
-            if(level>self.maxl):
+                return maxl
+            if(level>maxl):
                 res.append(root.val)
-                self.maxl=level
-            dfs(root.right,level+1)
-            dfs(root.left,level+1)
-        dfs(root,0)
+                maxl=level
+            maxl=dfs(root.right,level+1,maxl)
+            maxl=dfs(root.left,level+1,maxl)
+            return maxl
+        dfs(root,0,-1)
         return res
