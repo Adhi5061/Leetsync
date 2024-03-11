@@ -9,10 +9,7 @@ class Solution:
         if(root==None):
             return False
         def dfs(root,csum,level):
-            if(root):
-                print(root.val,csum)
             if(root==None):
-                print("I am false here")
                 return False
             if(root.left==None and root.right==None):
                 if(csum-root.val==0):
