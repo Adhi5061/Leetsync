@@ -13,7 +13,7 @@ class Solution:
                 return
             if(root.val in prefix):
                 self.count+=prefix.count(root.val)
-                
+
             if(targetSum-root.val ==0):
                 self.count+=1
             
@@ -27,6 +27,5 @@ class Solution:
             prefix.pop()
             for i in range(len(prefix)):
                 prefix[i]+=root.val
-            print("Prefix:",prefix)
         dfs(root,[])
         return self.count
