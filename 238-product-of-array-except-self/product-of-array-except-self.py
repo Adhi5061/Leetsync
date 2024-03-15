@@ -1,19 +1,32 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        prefix=[]
-        curr=1
+
+        totalWithZero = 1
+        totalWithOutZero = 1
+        cnt = 0
         for i in nums:
-            prefix.append(curr)
-            curr=curr*i
-        curr=1
-        suffix=[1]*len(nums)
-        for i in range(len(nums)-1,-1,-1):
-            suffix[i]=curr
-            curr*=nums[i]
-        res=[]
-        for i in range(0,len(nums)):
-            res.append(prefix[i]*suffix[i])
-        return res
+            if i == 0:
+                cnt += 1    
+            if cnt > 1:
+                return [0] * len(nums)
+            totalWithZero *= i
+            if i != 0:
+                totalWithOutZero *= i
+        return [totalWithZero//i if i != 0 else totalWithOutZero for i in nums]
+        # prefix=[]
+        # curr=1
+        # for i in nums:
+        #     prefix.append(curr)
+        #     curr=curr*i
+        # curr=1
+        # suffix=[1]*len(nums)
+        # for i in range(len(nums)-1,-1,-1):
+        #     suffix[i]=curr
+        #     curr*=nums[i]
+        # res=[]
+        # for i in range(0,len(nums)):
+        #     res.append(prefix[i]*suffix[i])
+        # return res
         
         
         # count=0
