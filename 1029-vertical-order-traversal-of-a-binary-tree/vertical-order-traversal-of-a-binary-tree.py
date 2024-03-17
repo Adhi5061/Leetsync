@@ -24,7 +24,7 @@ class Solution:
             dfs(root.right,level+1,depth+1)
         dfs(root,0,0)
         d=dict(sorted(d.items(),key=lambda x:(x[0],x[1])))
-        print(d)
+
         res=[]
         for dicti in d.values():
             temp=[]
