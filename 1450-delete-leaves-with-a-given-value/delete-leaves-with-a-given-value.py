@@ -15,7 +15,4 @@ class Solution:
             if(root.left==None and root.right==None and root.val==target):
                 return None
             return root
-        temp=TreeNode(-1)
-        temp.left=root
-        remove(temp)
-        return temp.left
+        return remove(root)
