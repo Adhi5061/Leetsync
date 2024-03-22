@@ -19,5 +19,4 @@ class Solution:
         for i in range(0,len(res)):
             res[i]=res[i][::-1]
         res.sort()
-        print(res)
         return res[0]
