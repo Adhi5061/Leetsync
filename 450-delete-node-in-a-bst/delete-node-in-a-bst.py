@@ -9,23 +9,13 @@ class Solution:
         if(root==None):
             return root
         if(root.val==key):
-            if(root.left and root.right):
-                prev=root
-                temp=root.right
-                while(temp.left):
-                    prev=temp
-                    temp=temp.left
-                if(prev==root):
-                    root.val=temp.val
-                    root.right=temp.right
-                    return root
-                prev.left=temp.right
-                root.val=temp.val
-                return root
-            elif(root.left):
+            if(not root.right):
                 return root.left
-            else:
-                return root.right
+            temp=root.right
+            while(temp.left):
+                temp=temp.left
+            temp.left=root.left
+            return root.right
         if(root.val>key):
             root.left=self.deleteNode(root.left,key)
         else:
