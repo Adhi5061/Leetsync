@@ -7,9 +7,7 @@ class Solution:
         res=0
         while(r<len(nums)):
             if(nums[r]==0 ):
-                print(l,r)
                 if(t==1):
-                    print(l,r)
                     res=max(res,r-l-1)
                     l=pos+1
                     pos=r
