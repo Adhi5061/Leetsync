@@ -9,7 +9,6 @@ class Solution:
         while(r!=0):
             r-=1
             l-=1
-            print(res,l,r)
             csum-=cardPoints[r]
             csum+=cardPoints[l]
             res=max(res,csum)
