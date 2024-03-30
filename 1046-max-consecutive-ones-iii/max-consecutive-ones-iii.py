@@ -11,7 +11,7 @@ class Solution:
                 if(nums[l]==0):
                     k+=1
                 l+=1
-            if(k>=0):
+            else:
                 res=max(res,r-l+1)
             r+=1
         return res
