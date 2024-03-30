@@ -7,16 +7,15 @@ class Solution:
         while(r<len(nums)):
             if(nums[r] in d):
                 d[nums[r]]+=1
-
             else:
-                while(len(d)>1):
-                    d[nums[l]]-=1
-                    if(d[nums[l]]==0):
-                        del d[nums[l]]
-                        l+=1
-                        break
-                    l+=1
                 d[nums[r]]=1
-            res=max(res,r-l+1)
+            if(len(d)>2):
+                d[nums[l]]-=1
+                if(d[nums[l]]==0):
+                    del d[nums[l]]
+                l+=1
+            
+            if(len(d)<=2):
+                res=max(res,r-l+1)
             r+=1
         return res
