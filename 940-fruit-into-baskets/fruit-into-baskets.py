@@ -18,6 +18,5 @@ class Solution:
                     l+=1
                 d[nums[r]]=1
             res=max(res,r-l+1)
-            print(res,d)
             r+=1
         return res
