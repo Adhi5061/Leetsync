@@ -4,6 +4,7 @@ class Solution:
         r=0
         res=0
         csum=0
+        mv=0
         d={}
         while(r<len(s)):
             if(s[r] in d):
@@ -11,11 +12,12 @@ class Solution:
             else:
                 d[s[r]]=1
             csum+=1
-            if(csum-max(d.values())>k):
+            mv=max(mv,d[s[r]])
+            if(csum-mv>k):
                 d[s[l]]-=1
                 csum-=1
                 l+=1
-            if(csum-max(d.values())<=k):
+            if(csum-mv<=k):
                 res=max(res,r-l+1)
             r+=1
         return res
