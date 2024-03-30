@@ -9,7 +9,6 @@ class Solution:
                 d[s[r]]+=1
             else:
                 d[s[r]]=1
-            print(d)
             if(sum(d.values())-max(d.values())>k):
                 d[s[l]]-=1
                 l+=1
