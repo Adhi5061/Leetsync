@@ -11,7 +11,6 @@ class Solution:
             while(r<len(nums)):
                 csum+=nums[r]
                 while(csum>k):
-                    print(csum,l)
                     csum-=nums[l]
                     l+=1
                 res+=r-l+1
