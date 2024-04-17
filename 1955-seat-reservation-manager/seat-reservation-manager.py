@@ -3,11 +3,13 @@ class SeatManager:
 
     def __init__(self, n: int):
         self.heap=[]
-        for i in range(1,n+1):
-            heapq.heappush(self.heap,i)
+        self.curr=0
 
     def reserve(self) -> int:
-        return heapq.heappop(self.heap)
+        if(self.heap):
+            return heapq.heappop(self.heap)
+        self.curr+=1
+        return self.curr
 
     def unreserve(self, seatNumber: int) -> None:
         heapq.heappush(self.heap,seatNumber)
