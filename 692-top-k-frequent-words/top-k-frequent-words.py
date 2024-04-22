@@ -7,7 +7,7 @@ class Solution:
             else:
                 d[i]=1
         d=dict(sorted(d.items(),key=lambda item:(-item[1],item[0])))
-        print(d)
+        # print(d)
         res=[]
         for i in d:
             res.append(i)
