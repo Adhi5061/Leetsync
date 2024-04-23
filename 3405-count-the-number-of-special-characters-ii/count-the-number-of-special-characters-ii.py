@@ -9,7 +9,6 @@ class Solution:
             else:
                 d[val]=ind
         d=dict(sorted(d.items()))
-        print(d)
         for val in d:
             if(val.islower()):
                 break
