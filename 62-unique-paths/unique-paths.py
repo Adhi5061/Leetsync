@@ -1,14 +1,14 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         d={}
-        def path(x,y):
-            if((x,y) in d):
-                return d[(x,y)]
-            if(x==1 or y==1):
-                d[(x,y)]=1
+        def dp(m,n):
+            if (m,n) in d:
+                return d[(m,n)]
+            if(m<1 or n<1):
+                return 0
+            if(m==1 and n==1):
                 return 1
-            else:
-                ans= (path(x-1,y)+path(x,y-1))
-                d[(x,y)]=ans
-                return ans
-        return(path(m,n))
+            ans=dp(m-1,n)+dp(m,n-1)
+            d[(m,n)]=ans
+            return ans
+        return dp(m,n)
