@@ -1,6 +1,7 @@
 class Solution:
     def __init__(self):
         self.memo={}
+        self.m=((10**9)+7)
     def numTilings(self, n: int) -> int:
         if(n in self.memo):
             return self.memo[n]
@@ -13,5 +14,5 @@ class Solution:
         for i in range(3,n+1):
             temp+=self.numTilings(n-i)
             temp+=self.numTilings(n-i)
-        self.memo[n]=temp+ans
-        return (temp+ans)%((10**9)+7)
+        self.memo[n]=(temp+ans)%self.m
+        return (temp+ans)%self.m
