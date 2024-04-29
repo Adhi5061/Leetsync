@@ -12,7 +12,7 @@ class Solution:
             temp=0
             for i in range(3,n+1):
                 temp+=rec(n-i)
-                temp+=rec(n-i)
+            temp+=temp
             memo[n]=(temp+ans)
             return (temp+ans)
         return rec(n)%((10**9)+7)
