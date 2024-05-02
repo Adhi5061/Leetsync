@@ -7,6 +7,6 @@ class Solution:
             c+=1
         if(c>=len(word)):
             return word
-        print(c)
+        # print(c)
         return(word[c::-1]+word[c+1:])
         
