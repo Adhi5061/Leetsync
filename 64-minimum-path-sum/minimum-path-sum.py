@@ -2,7 +2,7 @@ class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:
 
         table=[[float("inf")]*len(grid[0]) for _ in range(len(grid))]
-        print(table)
+        # print(table)
         table[0][0]=grid[0][0]
         for i in range(0,len(grid)):
             for j in range(0,len(grid[0])):
@@ -10,7 +10,7 @@ class Solution:
                     table[i][j+1]=min(table[i][j+1],table[i][j]+grid[i][j+1])
                 if(i<len(grid)-1):
                     table[i+1][j]=min(table[i+1][j],table[i][j]+grid[i+1][j])
-        print(table)
+        # print(table)
         return table[-1][-1]
 
         # memo={}
