@@ -1,12 +1,12 @@
 class Solution:
     def longestNiceSubarray(self, nums: List[int]) -> int:
         left=0
-        right=0
+        right=1
         res=0
         while(right<len(nums)):
-            if(left==right):
-                right+=1
-                continue
+            # if(left==right):
+            #     right+=1
+            #     continue
             count=1
             temp=nums[left]
             while(right<len(nums) and (temp&nums[right] ==0)):
@@ -16,5 +16,5 @@ class Solution:
             
             res=max(res,count)
             left+=1
-            right=left
+            right=left+1
         return max(res,1)
