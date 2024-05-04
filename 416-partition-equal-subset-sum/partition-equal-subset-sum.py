@@ -8,7 +8,7 @@ class Solution:
             if(target==0):
                 memo[(target,i)]=True
                 return True
-            if(i==len(nums)):
+            if(target<0 or i==len(nums)):
                 memo[(target,i)]=False
                 return False
             if(sub(target,i+1)):
