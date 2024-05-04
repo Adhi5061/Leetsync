@@ -22,13 +22,16 @@ class Solution:
 
         if(sum(nums)%2!=0):
             return False
-
+        target=sum(nums)/2
         s=set()
         s.add(0)
         for i in range(0,len(nums)):
             t=set()
             for j in s:
-                t.add(nums[i]+j)
+                if(nums[i]+j==target):
+                    return True
+                if(nums[i]+j<target):
+                    t.add(nums[i]+j)
             s.update(t)
  
         
