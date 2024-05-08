@@ -9,10 +9,8 @@ class Solution:
             d[score[i]]=i
         res=[0]*len(score)
         pos=len(score)
-        print(d)
         while(len(temp)>0):
             a=heapq.heappop(temp)
-            print(a)
             if(a==ans[0]):
                 res[d[a]]=("Gold Medal")
             elif(a==ans[1]):
