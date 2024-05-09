@@ -16,7 +16,7 @@ class Solution:
                 return 0
             for i in range(0,len(candies)):
                 c+=candies[i]//mid
-            print(c,left,right,mid)
+            # print(c,left,right,mid)
             # if(c==k):
             #     return mid
             if(c>=k):
