@@ -3,11 +3,26 @@ class Solution:
         import copy
         import numpy as np
         def check(row,col,i,j,mat):
-            if(row<0 or col<0 or row==n or col==n):
-                return True
-            if(mat[row][col]=="Q"):
-                return False
-            return check(row+i,col+j,i,j,mat)
+            i=row
+            j=col
+            while(i>=0 and j>=0):
+                if(mat[i][j]=="Q"):
+                    return 0
+                i-=1
+                j-=1
+            i=row
+            j=col
+            while(i>=0 and j<n):
+                if(mat[i][j]=="Q"):
+                    return 0
+                i-=1
+                j+=1
+            i=row
+            while(i>=0):
+                if(mat[i][col]=="Q"):
+                    return 0
+                i-=1
+            return 1
         
         res=[]
         mat=[["."]*n for i in range(n)]
