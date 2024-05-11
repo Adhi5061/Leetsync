@@ -2,7 +2,7 @@ class Solution:
     def totalNQueens(self, n: int) -> int:
         import copy
         import numpy as np
-        def check(row,col,i,j,mat):
+        def check(row,col,mat):
             i=row
             j=col
             while(i>=0 and j>=0):
@@ -31,7 +31,7 @@ class Solution:
                 return 1
             ans=0
             for i in range(0,n):
-                if(check(row,i,-1,1,mat) and check(row,i,-1,-1,mat) and check(row,i,-1,0,mat)):
+                if(check(row,i,mat)):
                     mat[row][i]="Q"
                     ans+=queen(row+1)
                     mat[row][i]="."
