@@ -4,6 +4,7 @@ class Solution:
         d={}
         def dp(pos):
             if(pos in d):
+                # print("hi")
                 return d[pos]
             if(pos==len(nums)-1):
                 return 0
