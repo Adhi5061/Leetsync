@@ -23,10 +23,9 @@ class Solution:
     def longestWord(self, words: List[str]) -> str:
         res=""
         resl=0
-        words.sort()
         trie=Trie()
         curr=trie.root
-        for word in words:
+        for word in sorted(words):
             l=trie.insert(word)
             if(l==resl):
                 res=min(res,word)
