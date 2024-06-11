@@ -16,7 +16,6 @@ class Solution:
             q.put(node)
             while(not q.empty()):
                 n=q.get()
-                print(n)
                 for i in range(0,len(isConnected)):
                     if(i!=n and isConnected[n][i]==1 and visited[i]==0):
                         visited[i]=1
