@@ -1,4 +1,4 @@
-from queue import Queue
+from collections import deque
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
         visited=[0]*len(isConnected)
@@ -11,15 +11,15 @@ class Solution:
         #         if(isConnected[node][i]==1):
         #             dfs(i)
         def bfs(node):
-            q=Queue()
+            q=deque()
             visited[node]=1
-            q.put(node)
-            while(not q.empty()):
-                n=q.get()
+            q.append(node)
+            while(q):
+                n=q.popleft()
                 visited[n]=1
                 for i in range(0,len(isConnected)):
                     if(i!=n and isConnected[n][i]==1 and visited[i]==0):
-                        q.put(i)
+                        q.append(i)
 
         res=0
         for i in range(0,len(visited)):
