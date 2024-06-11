@@ -9,11 +9,10 @@ class Solution:
                 if(i!=j and isConnected[i][j]==1):
                     d[i].append(j)
         def dfs(node):
-            if(visited[node]):
-                return
-            visited[node]=1
             for n in d[node]:
-                dfs(n)
+                if(not visited[n]):
+                    visited[n]=1
+                    dfs(n)
         # def dfs(node):
         #     if(visited[node]):
         #         return
@@ -35,6 +34,7 @@ class Solution:
         res=0
         for i in range(0,len(visited)):
             if(visited[i]==0):
+                visited[i]=1
                 dfs(i)
                 res+=1
         return res
