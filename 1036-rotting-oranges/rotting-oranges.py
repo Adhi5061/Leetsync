@@ -26,7 +26,7 @@ class Solution:
             return maxt
 
         maxt=bfs()
-        print(grid)
+        # print(grid)
         for i in range(0,len(grid)):
             for j in range(0,len(grid[0])):
                 if(grid[i][j]==1):
