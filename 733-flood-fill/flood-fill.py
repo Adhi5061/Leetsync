@@ -5,6 +5,7 @@ class Solution:
         x=[0,0,1,-1]
         y=[1,-1,0,0]
         start=image[sr][sc]
+        res=image
         visited=set()
         def bfs():
             q=Queue()
@@ -12,7 +13,7 @@ class Solution:
             while(not q.empty()):
                 # print(q)
                 curr=q.get()
-                image[curr[0]][curr[1]]=color
+                res[curr[0]][curr[1]]=color
                 for i in range(4):
                     cx=curr[0]+x[i]
                     cy=curr[1]+y[i]
@@ -20,4 +21,4 @@ class Solution:
                         q.put((cx,cy))
                         visited.add((cx,cy))
         bfs()
-        return image
+        return res
