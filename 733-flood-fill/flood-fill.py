@@ -22,5 +22,4 @@ class Solution:
                         q.put((cx,cy))
                         # visited.add((cx,cy))
         bfs()
-        print(res)
         return res
