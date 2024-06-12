@@ -11,23 +11,20 @@ class Solution:
         if start == color:
             return res
         
-        def bfs():
-            q = Queue()
-            q.put((sr, sc))
-            visited = set()
-            visited.add((sr, sc))
-            
-            while not q.empty():
-                curr = q.get()
-                res[curr[0]][curr[1]] = color
-                
-                for i in range(4):
-                    cx = curr[0] + x[i]
-                    cy = curr[1] + y[i]
-                    if (0 <= cx < len(image) and 0 <= cy < len(image[0]) and
-                        (cx, cy) not in visited and image[cx][cy] == start):
-                        q.put((cx, cy))
-                        visited.add((cx, cy))
+        q = Queue()
+        q.put((sr, sc))
+        visited = set()
+        visited.add((sr, sc))
         
-        bfs()
+        while not q.empty():
+            curr = q.get()
+            res[curr[0]][curr[1]] = color
+            
+            for i in range(4):
+                cx = curr[0] + x[i]
+                cy = curr[1] + y[i]
+                if (0 <= cx < len(image) and 0 <= cy < len(image[0]) and
+                    (cx, cy) not in visited and image[cx][cy] == start):
+                    q.put((cx, cy))
+                    visited.add((cx, cy))
         return res
