@@ -1,32 +1,33 @@
+from queue import Queue
+from typing import List
+
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
-        m = len(image)
-        n = len(image[0])
-        oldColor = image[sr][sc]
-        if oldColor == color:
-            return image
-        queue = deque([(sr,sc)])
-        visited = {(sr,sc)}
-        image[sr][sc] = color
-        while queue:
-            for _ in range(len(queue)):
-                i, j = queue.popleft()
+        x = [0, 0, 1, -1]
+        y = [1, -1, 0, 0]
+        start = image[sr][sc]
+        res = [row[:] for row in image]
+        
+        if start == color:
+            return res
+        
+        def bfs():
+            q = Queue()
+            q.put((sr, sc))
+            visited = set()
+            visited.add((sr, sc))
+            
+            while not q.empty():
+                curr = q.get()
+                res[curr[0]][curr[1]] = color
                 
-                if i-1 >= 0 and image[i-1][j] == oldColor and (i-1, j) not in visited:
-                    image[i-1][j] = color
-                    queue.append((i-1,j))
-                    visited.add((i-1,j))
-                if j-1 >= 0 and image[i][j-1] == oldColor and (i, j-1) not in visited:
-                    image[i][j-1] = color
-                    queue.append((i,j-1))
-                    visited.add((i,j-1))
-                if i+1 < m and image[i+1][j] == oldColor and (i+1, j) not in visited:
-                    image[i+1][j] = color
-                    queue.append((i+1,j))
-                    visited.add((i+1,j))
-                if j+1 < n and image[i][j+1] == oldColor and (i, j+1) not in visited:
-                    image[i][j+1] = color
-                    queue.append((i,j+1))
-                    visited.add((i,j+1))
-                
-        return image
+                for i in range(4):
+                    cx = curr[0] + x[i]
+                    cy = curr[1] + y[i]
+                    if (0 <= cx < len(image) and 0 <= cy < len(image[0]) and
+                        (cx, cy) not in visited and image[cx][cy] == start):
+                        q.put((cx, cy))
+                        visited.add((cx, cy))
+        
+        bfs()
+        return res
