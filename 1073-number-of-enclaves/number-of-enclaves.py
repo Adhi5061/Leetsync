@@ -17,7 +17,7 @@ class Solution:
                     # print(i,j)
                     dfs(i,j)
         count=0
-        print(visited)
+        # print(visited)
         for i in range(0,len(grid)):
             for j in range(0,len(grid[0])):
                 if(grid[i][j]==1 and visited[i][j]!=1):
