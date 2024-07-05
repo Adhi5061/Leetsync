@@ -1,34 +1,32 @@
-from queue import Queue
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
+        from collections import deque
+        xc=[0,0,1,-1]
+        yc=[1,-1,0,0]
         
-        x=[0,0,1,-1]
-        y=[1,-1,0,0]
-        
-        def bfs():
-            maxt=0
-            q=Queue()
-            for i in range(0,len(grid)):
-                for j in range(0,len(grid[0])):
-                    if(grid[i][j]==2):
-                        q.put((i,j,0))
-            while(not q.empty()):
-                # print(q,end="next")
-                node=q.get()
+        def bfs(q):
+            l=0
+            while(q):
+                curr=q.popleft()
+                x=curr[0]
+                y=curr[1]
+                l=curr[2]
                 for i in range(4):
-                    # print(node)
-                    nx=node[0]+x[i]
-                    ny=node[1]+y[i]
-                    if(nx>=0 and ny>=0 and nx<len(grid) and ny<len(grid[0]) and grid[nx][ny]==1):
-                        grid[nx][ny]=2
-                        q.put((nx,ny,node[2]+1))
-                        maxt=max(maxt,node[2]+1)
-            return maxt
-
-        maxt=bfs()
-        # print(grid)
+                    cx=x+xc[i]
+                    cy=y+yc[i]
+                    if(cx>=0 and cy>=0 and cx<len(grid) and cy<len(grid[0]) and grid[cx][cy]==1):
+                        grid[cx][cy]=2
+                        q.append((cx,cy,l+1))
+            return l
+        q=deque()
+        for i in range(0,len(grid)):
+            for j in range(0,len(grid[0])):
+                if(grid[i][j]==2):
+                    q.append((i,j,0))
+        # print(q)
+        res=bfs(q)
         for i in range(0,len(grid)):
             for j in range(0,len(grid[0])):
                 if(grid[i][j]==1):
                     return -1
-        return maxt
+        return res
