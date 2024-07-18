@@ -6,7 +6,7 @@ class Solution:
         adj=[[] for row in range(numCourses)]
         for after,prev in prerequisites:
             adj[prev].append(after)
-        print(adj)
+        # print(adj)
         for row in prerequisites:
             indeg[row[0]]+=1
         for ind in range(numCourses):
