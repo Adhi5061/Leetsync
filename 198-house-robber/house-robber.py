@@ -1,14 +1,16 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
         l=len(nums)
-        dp=[-1]*l
-        dp[0]=nums[0]
+        prev2=nums[0]
         if(l<2):
-            return dp[0]
-        dp[1]=max(nums[0],nums[1])
+            return prev2
+        prev1=max(nums[0],nums[1])
         for i in range(2,l):
-            dp[i]=max(dp[i-1],nums[i]+dp[i-2])
-        return dp[-1]
+            curr=max(prev1,nums[i]+prev2)
+            prev2=prev1
+            prev1=curr
+            
+        return prev1
         # memo={0:nums[0]}
         # def dp(n):
         #     if(n<0):
