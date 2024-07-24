@@ -7,7 +7,7 @@
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         
-        self.ans=0
+        self.ans=-100000
         def dia(root):
             if(root==None):
                 return 0
