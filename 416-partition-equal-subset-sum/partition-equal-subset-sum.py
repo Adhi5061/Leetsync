@@ -1,38 +1,19 @@
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
         
-        # memo={}
-        # def sub(target,i):
-        #     if((target,i) in memo):
-        #         return memo[(target,i)]
-        #     if(target==0):
-        #         memo[(target,i)]=True
-        #         return True
-        #     if(target<0 or i==len(nums)):
-        #         memo[(target,i)]=False
-        #         return False
-        #     if(sub(target,i+1)):
-        #         memo[(target,i)]=True
-        #         return True
-        #     if(sub(target-nums[i],i+1)):
-        #         memo[(target,i)]=True
-        #         return True
-        #     memo[(target,i)]=False
-        #     return False
-
-        if(sum(nums)%2!=0):
-            return False
-        target=sum(nums)/2
-        s=set()
-        s.add(0)
-        for i in range(0,len(nums)):
-            t=set()
-            for j in s:
-                if(nums[i]+j==target):
+        memo={}
+        def dp(i,target):
+            if(i==-1):
+                if(target==0):
                     return True
-                if(nums[i]+j<target):
-                    t.add(nums[i]+j)
-            s.update(t)
- 
-        
-        return sum(nums)/2 in s
+                return False
+                # return False
+            if((i,target) in memo):
+                return memo[(i,target)]
+            ans=dp(i-1,target-nums[i]) or dp(i-1,target)
+            memo[(i,target)]=ans
+            return ans
+        s=sum(nums)
+        if(s%2==1):
+            return False
+        return dp(len(nums)-1,s//2)
