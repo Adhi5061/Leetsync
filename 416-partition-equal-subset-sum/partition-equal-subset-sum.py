@@ -3,6 +3,8 @@ class Solution:
         
         memo={}
         def dp(i,target):
+            if(target==0):
+                return True
             if(i==-1):
                 if(target==0):
                     return True
