@@ -1,24 +1,26 @@
 class Solution:
-    def trap(self, height) :
+    def trap(self, height: List[int]) -> int:
         lh=[]
         rh=[]
-        cg=-1
-        for ind,val in enumerate(height):
-            if(val>=cg):
-                lh.append(-1)
-                cg=val
+        stack=[]
+        maxv=0
+        for i in height:
+            if(i>maxv):
+                lh.append(0)
+                maxv=i
             else:
-                lh.append(cg)
-        cg=-1
+                lh.append(maxv)
+        maxv=0
         for i in range(len(height)-1,-1,-1):
-            if(height[i]>=cg):
-                rh.append(-1)
-                cg=height[i]
+            if(height[i]>maxv):
+                rh.append(0)
+                maxv=height[i]
             else:
-                rh.append(cg)
-        rh.reverse()
-        store=0
+                rh.append(maxv)
+        res=0
+        rh=rh[::-1]
+        # print(lh,"\n",rh)
         for i in range(0,len(height)):
-            if(lh[i]!=-1 and rh[i]!=-1):
-                store+=(min(lh[i],rh[i])-height[i])
-        return store
+            t=min(lh[i],rh[i])
+            res+=t-height[i] if(t!=0) else 0
+        return res
